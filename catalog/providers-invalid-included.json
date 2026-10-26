@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "credentialsStored": false,
+    "unknownCapabilitiesBundled": false,
+    "environmentEvidenceScope": "negative validation fixture"
+  },
+  "providers": [
+    {
+      "id": "not-yet-free",
+      "namespace": "example",
+      "category": "mcp",
+      "availability": "candidate",
+      "integrationOwner": "local-project",
+      "capabilities": ["synthetic negative check"],
+      "permissions": ["none"],
+      "networkAccess": false,
+      "source": {
+        "repository": "https://example.invalid/provider",
+        "version": "1.0.0",
+        "license": "MIT",
+        "pricing": "unknown"
+      },
+      "accountRequirement": false,
+      "authentication": "none",
+      "dataSent": "none",
+      "distribution": "included",
+      "reviewStatus": "approved"
+    }
+  ]
+}

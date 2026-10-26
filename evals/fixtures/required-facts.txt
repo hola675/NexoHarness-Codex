@@ -1,0 +1,4 @@
+Codex-only
+Codex Desktop compatibility check is pending
+Never copy credentials into the harness repository.
+explicit human review before promotion

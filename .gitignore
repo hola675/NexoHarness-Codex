@@ -1,0 +1,6 @@
+# Research downloads are retained locally for review, not part of the product source.
+/NexoHarness-research/
+
+# Local JavaScript dependencies and generated package output.
+/node_modules/
+/dist/

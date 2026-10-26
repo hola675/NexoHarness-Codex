@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "credentialsStored": false,
+    "unknownCapabilitiesBundled": false,
+    "environmentEvidenceScope": "current Codex work session only; does not prove availability in Codex Desktop"
+  },
+  "providers": [
+    {
+      "id": "codebase-memory",
+      "namespace": "mcp__codebase_memory_mcp",
+      "category": "mcp",
+      "availability": "observed-in-current-session",
+      "integrationOwner": "host-managed",
+      "capabilities": ["repository code graph", "symbol search", "dependency tracing"],
+      "permissions": ["repository source and metadata access; exact indexed scope is project-dependent"],
+      "networkAccess": "unknown",
+      "source": {
+        "repository": "unknown",
+        "version": "unknown",
+        "license": "unknown",
+        "pricing": "unknown"
+      },
+      "accountRequirement": "unknown",
+      "distribution": "not-included",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "playwright",
+      "namespace": "mcp__playwright",
+      "category": "mcp",
+      "availability": "observed-in-current-session",
+      "integrationOwner": "host-managed",
+      "capabilities": ["browser automation and inspection"],
+      "permissions": ["browser interaction and network requests to user-selected pages"],
+      "networkAccess": true,
+      "source": {
+        "repository": "unknown",
+        "version": "unknown",
+        "license": "unknown",
+        "pricing": "unknown"
+      },
+      "accountRequirement": "unknown",
+      "distribution": "not-included",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "rea",
+      "namespace": "mcp__rea",
+      "category": "mcp",
+      "availability": "observed-in-current-session",
+      "integrationOwner": "host-managed",
+      "capabilities": ["local artifact inspection", "reverse engineering"],
+      "permissions": ["artifact reads; some exposed tools can execute commands or alter analysis state"],
+      "networkAccess": "unknown",
+      "source": {
+        "repository": "unknown",
+        "version": "unknown",
+        "license": "unknown",
+        "pricing": "unknown"
+      },
+      "accountRequirement": "unknown",
+      "distribution": "not-included",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "openai-developer-docs",
+      "namespace": "openaiDeveloperDocs",
+      "category": "mcp",
+      "availability": "official-public-service-documented",
+      "integrationOwner": "optional-remote-provider",
+      "capabilities": ["read-only search and retrieval of OpenAI developer documentation"],
+      "permissions": ["send documentation search queries to the public OpenAI docs MCP endpoint"],
+      "networkAccess": true,
+      "source": {
+        "repository": "https://developers.openai.com/resources/docs-mcp",
+        "version": "current public endpoint; no release version stated",
+        "license": "service terms not recorded",
+        "pricing": "unknown",
+        "verificationUrl": "https://developers.openai.com/resources/docs-mcp"
+      },
+      "accountRequirement": false,
+      "authentication": "anonymous",
+      "dataSent": "search queries limited to OpenAI developer documentation questions; never include project source or credentials",
+      "distribution": "not-included",
+      "reviewStatus": "pending",
+      "decisionBlockers": [
+        "official docs describe anonymous read-only access but do not state a service pricing commitment",
+        "Codex Desktop discovery and invocation have not been verified in this project"
+      ]
+    }
+  ]
+}

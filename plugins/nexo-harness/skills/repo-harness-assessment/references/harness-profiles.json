@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "roles": {
+    "entrypoint": "Codex first-read guidance and edit boundaries.",
+    "work-state": "Current tasks, status, acceptance criteria, and task-to-change traceability.",
+    "delivery-evidence": "A concise record of changes, verification, risks, and handoff.",
+    "validation": "Repeatable commands that show whether a change is safe to review.",
+    "runtime-evidence": "Artifacts that connect observed behavior to logs, traces, screenshots, or external dependencies.",
+    "quality": "Small generated metrics and baselines that prevent regression."
+  },
+  "archetypes": [
+    {
+      "id": "library",
+      "minimumRoles": ["entrypoint", "validation"],
+      "optionalRoles": ["work-state", "delivery-evidence", "quality"],
+      "avoidByDefault": ["runtime-evidence"]
+    },
+    {
+      "id": "service",
+      "minimumRoles": ["entrypoint", "validation", "runtime-evidence"],
+      "optionalRoles": ["work-state", "delivery-evidence", "quality"],
+      "avoidByDefault": []
+    },
+    {
+      "id": "monorepo",
+      "minimumRoles": ["entrypoint", "validation", "work-state"],
+      "optionalRoles": ["delivery-evidence", "runtime-evidence", "quality"],
+      "avoidByDefault": []
+    },
+    {
+      "id": "docs-only",
+      "minimumRoles": ["entrypoint", "validation"],
+      "optionalRoles": ["work-state", "delivery-evidence"],
+      "avoidByDefault": ["runtime-evidence", "quality"]
+    },
+    {
+      "id": "codex-plugin",
+      "minimumRoles": ["entrypoint", "validation"],
+      "optionalRoles": ["work-state", "delivery-evidence", "quality"],
+      "avoidByDefault": ["runtime-evidence"]
+    }
+  ]
+}

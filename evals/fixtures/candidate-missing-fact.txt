@@ -1,0 +1,4 @@
+Synthetic context fixture; contains no project, account, or user data.
+Codex-only, local repository; Codex Desktop compatibility check is pending.
+Never copy credentials into the harness repository.
+Output size is a context-volume proxy, not billed tokens.

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "nexo-harness",
+  "version": "0.1.0",
+  "description": "Local Codex workflows with reviewed capabilities, clear handoffs, and evidence-based verification.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "NexoHarness",
+        "shortDescription": "Workflows and guardrails for Codex",
+        "longDescription": "A local-first Codex harness. Capabilities are selected individually, source-tracked, and kept inside this plugin.",
+        "developerName": "NexoHarness Codex",
+        "category": "Productivity"
+      }
+    }
+  }
+}

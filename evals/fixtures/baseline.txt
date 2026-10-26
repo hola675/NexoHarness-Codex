@@ -1,0 +1,8 @@
+Synthetic context fixture; contains no project, account, or user data.
+
+The repository is local and Codex-only.
+Codex Desktop compatibility check is pending.
+Never copy credentials into the harness repository.
+Candidate changes require explicit human review before promotion.
+
+The output size is a proxy for context volume, not billed tokens.

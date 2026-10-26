@@ -1,0 +1,35 @@
+{
+  "id": "replace-with-kebab-case-id",
+  "name": "Replace with candidate name",
+  "source": {
+    "repository": "https://example.invalid/owner/repository",
+    "version": "unknown",
+    "commit": null,
+    "license": "unknown",
+    "licenseUrlOrFile": "unknown",
+    "licenseReviewed": false
+  },
+  "platform": {
+    "codexWindows": "Describe the intended Codex integration surface",
+    "windowsTested": false
+  },
+  "runtime": {
+    "dependencies": [],
+    "permissions": ["unknown"],
+    "networkAccess": false,
+    "requiresAccount": false,
+    "networkPurpose": ""
+  },
+  "overlap": {
+    "existingCapabilities": "List installed Codex capabilities that may overlap",
+    "assessment": "Explain the specific capability gap this candidate would fill"
+  },
+  "decision": {
+    "state": "pending_review",
+    "rationale": "Record keep/adapt/replace/reject after reviewing evidence"
+  },
+  "evidence": {
+    "filesInspected": [],
+    "installersExecuted": false
+  }
+}

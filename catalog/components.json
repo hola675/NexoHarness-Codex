@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "id": "harness-workflow",
+      "kind": "skill",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": "plugins/nexo-harness/skills/harness-workflow/SKILL.md",
+      "dependencies": [],
+      "permissions": [],
+      "networkAccess": false,
+      "changes": [
+        "Written for this Codex-only repository; no third-party source copied."
+      ],
+      "evidence": {
+        "cliMarketplaceDiscovery": "passed",
+        "cliInstall": "passed",
+        "desktopInvocation": "pending"
+      }
+    },
+    {
+      "id": "repo-harness-assessment",
+      "kind": "skill",
+      "status": "adapted",
+      "source": {
+        "type": "third-party",
+        "repository": "https://github.com/yfge/agent-harness-skills",
+        "version": "0.2.0",
+        "commit": "cbc6910e76cbc349bda44711f220265b62d60181",
+        "license": "MIT",
+        "licenseFile": "plugins/nexo-harness/vendor/agent-harness-skills/LICENSE",
+        "originalPath": "skills/repo-harness-assessment/"
+      },
+      "destination": "plugins/nexo-harness/skills/repo-harness-assessment/SKILL.md",
+      "supportFiles": [
+        "plugins/nexo-harness/skills/repo-harness-assessment/references/build-when-missing.md",
+        "plugins/nexo-harness/skills/repo-harness-assessment/references/entrypoint-policy.md",
+        "plugins/nexo-harness/skills/repo-harness-assessment/references/harness-profiles.json"
+      ],
+      "dependencies": [],
+      "permissions": [
+        "read repository documentation and metadata"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "Restricted the workflow to Codex repositories and AGENTS.md entrypoints.",
+        "Removed references to other agent clients and to skills not included in this plugin.",
+        "Included the required references and corrected the missing profile-file path.",
+        "Kept only the local MIT notice; no runtime scripts or external services are included."
+      ],
+      "evidence": {
+        "upstreamReview": "passed",
+        "cliMarketplaceDiscovery": "passed",
+        "cliInstall": "passed",
+        "sourceCacheHashes": "passed",
+        "desktopInvocation": "pending"
+      }
+    },
+    {
+      "id": "context-budget",
+      "kind": "skill",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": "plugins/nexo-harness/skills/context-budget/SKILL.md",
+      "dependencies": [],
+      "permissions": [
+        "read task-relevant repository context"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "Written for this project; emphasizes progressive loading and preservation of decision-critical evidence."
+      ],
+      "evidence": {
+        "localValidation": "passed",
+        "cliInstall": "passed",
+        "sourceCacheHashes": "passed",
+        "desktopInvocation": "pending"
+      }
+    },
+    {
+      "id": "context-evaluator",
+      "kind": "tool",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": "tools/evaluate-context.mjs",
+      "dependencies": [],
+      "permissions": [
+        "read three explicitly supplied local UTF-8 files, each up to 10 MiB",
+        "write report to standard output only"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "First-party, read-only byte/line comparison and literal required-evidence check; no semantic-quality or token-billing claim."
+      ],
+      "evidence": {
+        "syntheticFixture": "passed"
+      }
+    },
+    {
+      "id": "candidate-intake-checker",
+      "kind": "tool",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": "tools/check-candidate.mjs",
+      "supportFiles": [
+        "catalog/candidate-template.json",
+        "catalog/candidate-fixture.json",
+        "docs/component-intake.md"
+      ],
+      "dependencies": [],
+      "permissions": [
+        "read one explicitly supplied local JSON file up to 1 MiB",
+        "write a report to standard output only"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "First-party intake completeness check; never installs, executes, approves, or modifies candidate files."
+      ],
+      "evidence": {
+        "syntheticFixture": "passed"
+      }
+    },
+    {
+      "id": "plugin-packager",
+      "kind": "tool",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": "tools/package_plugin.py",
+      "dependencies": ["harness-workflow", "repo-harness-assessment", "context-budget"],
+      "permissions": [
+        "read plugin files and component catalog",
+        "write a ZIP artifact only at the requested output path"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "Builds the local Codex plugin archive in sorted path order with normalized ZIP metadata; verifies entry paths, CRC, and source bytes before reporting success."
+      ],
+      "evidence": {
+        "packageBuild": "passed",
+        "archiveIntegrity": "passed",
+        "repeatability": "passed with Python 3.14.9; same-machine archive hashes matched"
+      }
+    },
+    {
+      "id": "provider-registry-validator",
+      "kind": "tool",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": "tools/validate-providers.mjs",
+      "supportFiles": ["catalog/providers.json", "catalog/providers-invalid-included.json"],
+      "dependencies": [],
+      "permissions": ["read local provider metadata", "write validation status to standard output"],
+      "networkAccess": false,
+      "changes": [
+        "Validates provider inventory metadata and rejects credential-shaped fields; does not load or connect to providers."
+      ],
+      "evidence": { "localValidation": "passed" }
+    },
+    {
+      "id": "nexo-scout",
+      "kind": "agent",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": ".codex/agents/nexo-scout.toml",
+      "dependencies": [],
+      "permissions": [
+        "read repository files",
+        "no file edits by role instruction"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "Project-scoped Codex agent for bounded, read-only exploration."
+      ],
+      "evidence": {
+        "officialFormatReviewed": "passed",
+        "profileStructureValidation": "passed",
+        "installPreview": "passed",
+        "desktopInvocation": "pending"
+      }
+    },
+    {
+      "id": "nexo-reviewer",
+      "kind": "agent",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": ".codex/agents/nexo-reviewer.toml",
+      "dependencies": [],
+      "permissions": [
+        "read diffs and source files",
+        "no file edits by role instruction"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "Project-scoped Codex agent for independent read-only review."
+      ],
+      "evidence": {
+        "officialFormatReviewed": "passed",
+        "profileStructureValidation": "passed",
+        "installPreview": "passed",
+        "desktopInvocation": "pending"
+      }
+    },
+    {
+      "id": "nexo-worker",
+      "kind": "agent",
+      "status": "included",
+      "source": {
+        "type": "first-party",
+        "repository": "NexoHarnnes-Codex",
+        "version": "0.1.0",
+        "commit": null,
+        "license": "PENDING: repository license selection",
+        "originalPath": null
+      },
+      "destination": ".codex/agents/nexo-worker.toml",
+      "dependencies": [],
+      "permissions": [
+        "edit assigned files only",
+        "no nested delegation without coordinator assignment"
+      ],
+      "networkAccess": false,
+      "changes": [
+        "Project-scoped Codex agent for one bounded implementation assignment."
+      ],
+      "evidence": {
+        "officialFormatReviewed": "passed",
+        "profileStructureValidation": "passed",
+        "installPreview": "passed",
+        "desktopInvocation": "pending"
+      }
+    }
+  ]
+}

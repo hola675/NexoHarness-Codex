@@ -1,0 +1,35 @@
+{
+  "id": "sample-local-skill",
+  "name": "Synthetic local Codex skill candidate",
+  "source": {
+    "repository": "https://example.invalid/synthetic/sample-local-skill",
+    "version": "1.0.0",
+    "commit": "0123456789abcdef0123456789abcdef01234567",
+    "license": "MIT",
+    "licenseUrlOrFile": "LICENSE",
+    "licenseReviewed": true
+  },
+  "platform": {
+    "codexWindows": "Codex skill package",
+    "windowsTested": true
+  },
+  "runtime": {
+    "dependencies": [],
+    "permissions": ["read repository documentation"],
+    "networkAccess": false,
+    "requiresAccount": false,
+    "networkPurpose": ""
+  },
+  "overlap": {
+    "existingCapabilities": "harness-workflow",
+    "assessment": "Synthetic example only; replace with a concrete gap analysis"
+  },
+  "decision": {
+    "state": "pending_review",
+    "rationale": "Synthetic fixture for exercising the review-readiness checker; this is not an import decision"
+  },
+  "evidence": {
+    "filesInspected": ["README.md", "LICENSE"],
+    "installersExecuted": false
+  }
+}
